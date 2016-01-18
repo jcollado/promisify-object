@@ -1,0 +1,31 @@
+{
+  "name": "promisify-object",
+  "version": "0.0.0",
+  "description": "Promisify functions in a given object",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcollado/promisify-object.git"
+  },
+  "keywords": [
+    "promisify",
+    "object"
+  ],
+  "author": "Javier Collado <javier.collado@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcollado/promisify-object/issues"
+  },
+  "homepage": "https://github.com/jcollado/promisify-object#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
