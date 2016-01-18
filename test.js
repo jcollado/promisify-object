@@ -1,4 +1,4 @@
-/* global describe it */
+/* global describe it beforeEach */
 'use strict'
 
 const chai = require('chai')
@@ -8,10 +8,15 @@ const sinon = require('sinon')
 const expect = chai.expect
 
 describe('promisify-object', function () {
-  it('promisifies functions in object', function () {
-    const stubs = {
+  let stubs
+
+  beforeEach(function () {
+    stubs = {
       'promisify-function': sinon.stub().returns('promisified')
     }
+  })
+
+  it('promisifies functions in object', function () {
     const promisify = requireInject('./index', stubs)
 
     const obj = {
@@ -26,5 +31,14 @@ describe('promisify-object', function () {
       b: 'promisified',
       c: 'something else'
     })
+  })
+
+  it('promisifies functions', function () {
+    const promisify = requireInject('./index', stubs)
+
+    const fn = function () {}
+
+    const promisified = promisify(fn)
+    expect(promisified).to.equal('promisified')
   })
 })
