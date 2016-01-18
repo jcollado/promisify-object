@@ -5,8 +5,8 @@
 [![Coverage Status](https://coveralls.io/repos/jcollado/promisify-object/badge.svg?branch=master&service=github)](https://coveralls.io/github/jcollado/promisify-object?branch=master)
 [![Dependency Status](https://david-dm.org/jcollado/promisify-object.svg)](https://david-dm.org/jcollado/promisify-object)
 [![devDependency Status](https://david-dm.org/jcollado/promisify-object/dev-status.svg)](https://david-dm.org/jcollado/promisify-object#info=devDependencies)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Promisify functions in a given object
