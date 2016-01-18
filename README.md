@@ -2,6 +2,25 @@
 
 Promisify functions in a given object
 
+## Installation
+
+The recommended way to install `promisify-object` is as a dependency of a project:
+
+```bash
+npm install --save promisify-object
+```
+
+## Usage
+
+Promisify methods of a given object:
+
+```node
+const fs = require('fs')
+const promisify = require('promisify-object')
+
+promisify(fs, ['mkdir', 'readFile'])
+```
+
 ## Contributing
 
 Any contribution is more than welcome. In particular, if:
