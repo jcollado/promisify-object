@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard",
+    "pretest": "npm run lint",
     "test": "mocha test.js"
   },
   "repository": {
