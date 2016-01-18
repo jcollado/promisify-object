@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cover": "istanbul cover _mocha -- test.js",
+    "coveralls": "istanbul cover --report lcovonly _mocha -- test.js && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "lint": "standard",
     "pretest": "npm run lint",
     "test": "mocha test.js"
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/jcollado/promisify-object#readme",
   "devDependencies": {
     "chai": "3.4.1",
+    "coveralls": "2.11.6",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "1.0.3",
     "istanbul": "0.4.2",
