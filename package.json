@@ -51,6 +51,6 @@
     }
   },
   "dependencies": {
-    "promisify-function": "1.1.1"
+    "promisify-function": "1.2.1"
   }
 }
