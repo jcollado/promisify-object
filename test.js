@@ -1,42 +1,31 @@
-/* global describe it beforeEach */
-import chai from 'chai'
+import 'babel-register'
+
 import requireInject from 'require-inject'
 import sinon from 'sinon'
+import test from 'ava'
 
-const expect = chai.expect
+const stubs = {
+  'promisify-function': sinon.stub().returns('promisified')
+}
+const promisify = requireInject('./src/index', stubs).default
 
-describe('promisify-object', () => {
-  let stubs
+test('promisify-object: promisifies functions in object', t => {
+  const obj = {
+    a: 'a function',
+    b: 'another function',
+    c: 'something else'
+  }
 
-  beforeEach(() => {
-    stubs = {
-      'promisify-function': sinon.stub().returns('promisified')
-    }
+  promisify(obj, ['a', 'b'])
+  t.same(obj, {
+    a: 'promisified',
+    b: 'promisified',
+    c: 'something else'
   })
+})
 
-  it('promisifies functions in object', () => {
-    const promisify = requireInject('./src/index', stubs).default
+test('promisify-object: promisifies functions', t => {
+  const fn = () => {}
 
-    const obj = {
-      a: 'a function',
-      b: 'another function',
-      c: 'something else'
-    }
-
-    promisify(obj, ['a', 'b'])
-    expect(obj).to.deep.equal({
-      a: 'promisified',
-      b: 'promisified',
-      c: 'something else'
-    })
-  })
-
-  it('promisifies functions', () => {
-    const promisify = requireInject('./src/index', stubs).default
-
-    const fn = () => {}
-
-    const promisified = promisify(fn)
-    expect(promisified).to.equal('promisified')
-  })
+  t.is(promisify(fn), 'promisified')
 })
