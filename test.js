@@ -1,22 +1,20 @@
 /* global describe it beforeEach */
-'use strict'
-
-const chai = require('chai')
-const requireInject = require('require-inject')
-const sinon = require('sinon')
+import chai from 'chai'
+import requireInject from 'require-inject'
+import sinon from 'sinon'
 
 const expect = chai.expect
 
-describe('promisify-object', function () {
+describe('promisify-object', () => {
   let stubs
 
-  beforeEach(function () {
+  beforeEach(() => {
     stubs = {
       'promisify-function': sinon.stub().returns('promisified')
     }
   })
 
-  it('promisifies functions in object', function () {
+  it('promisifies functions in object', () => {
     const promisify = requireInject('./src/index', stubs).default
 
     const obj = {
@@ -33,10 +31,10 @@ describe('promisify-object', function () {
     })
   })
 
-  it('promisifies functions', function () {
+  it('promisifies functions', () => {
     const promisify = requireInject('./src/index', stubs).default
 
-    const fn = function () {}
+    const fn = () => {}
 
     const promisified = promisify(fn)
     expect(promisified).to.equal('promisified')
