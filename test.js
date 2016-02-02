@@ -1,23 +1,15 @@
 import 'babel-register'
 
-import chai from 'chai'
 import requireInject from 'require-inject'
 import sinon from 'sinon'
 import test from 'ava'
 
-const expect = chai.expect
+const stubs = {
+  'promisify-function': sinon.stub().returns('promisified')
+}
+const promisify = requireInject('./src/index', stubs).default
 
-let stubs
-
-test.beforeEach(() => {
-  stubs = {
-    'promisify-function': sinon.stub().returns('promisified')
-  }
-})
-
-test('promisify-object: promisifies functions in object', () => {
-  const promisify = requireInject('./src/index', stubs).default
-
+test('promisify-object: promisifies functions in object', t => {
   const obj = {
     a: 'a function',
     b: 'another function',
@@ -25,18 +17,15 @@ test('promisify-object: promisifies functions in object', () => {
   }
 
   promisify(obj, ['a', 'b'])
-  expect(obj).to.deep.equal({
+  t.same(obj, {
     a: 'promisified',
     b: 'promisified',
     c: 'something else'
   })
 })
 
-test('promisify-object: promisifies functions', () => {
-  const promisify = requireInject('./src/index', stubs).default
-
+test('promisify-object: promisifies functions', t => {
   const fn = () => {}
 
-  const promisified = promisify(fn)
-  expect(promisified).to.equal('promisified')
+  t.is(promisify(fn), 'promisified')
 })
