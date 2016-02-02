@@ -17,7 +17,7 @@ describe('promisify-object', function () {
   })
 
   it('promisifies functions in object', function () {
-    const promisify = requireInject('./index', stubs)
+    const promisify = requireInject('./src/index', stubs).default
 
     const obj = {
       a: 'a function',
@@ -34,7 +34,7 @@ describe('promisify-object', function () {
   })
 
   it('promisifies functions', function () {
-    const promisify = requireInject('./index', stubs)
+    const promisify = requireInject('./src/index', stubs).default
 
     const fn = function () {}
 

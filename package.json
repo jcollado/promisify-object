@@ -9,7 +9,7 @@
     "lint": "standard",
     "multitest": "multitest",
     "pretest": "npm run lint",
-    "test": "mocha test.js",
+    "test": "mocha --compilers js:babel-register test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post && git fetch --tags && pr-tagger --log-level debug --access-token ${GH_TOKEN}"
   },
   "repository": {
@@ -29,6 +29,7 @@
   "devDependencies": {
     "babel-cli": "6.4.5",
     "babel-preset-es2015-node4": "2.0.3",
+    "babel-register": "6.4.3",
     "chai": "3.5.0",
     "coveralls": "2.11.6",
     "cz-conventional-changelog": "1.1.5",
