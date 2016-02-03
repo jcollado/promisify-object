@@ -60,6 +60,11 @@
   "dependencies": {
     "promisify-function": "1.3.2"
   },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
   "babel": {
     "presets": [
       "es2015-node4"

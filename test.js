@@ -1,5 +1,3 @@
-import 'babel-register'
-
 import requireInject from 'require-inject'
 import sinon from 'sinon'
 import test from 'ava'
