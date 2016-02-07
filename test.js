@@ -7,7 +7,7 @@ const stubs = {
 }
 const promisify = requireInject('./src/index', stubs).default
 
-test('promisify-object: promisifies functions in object', t => {
+test('promisify-object: promisifies functions in object', (t) => {
   const obj = {
     a: 'a function',
     b: 'another function',
@@ -22,7 +22,7 @@ test('promisify-object: promisifies functions in object', t => {
   })
 })
 
-test('promisify-object: promisifies functions', t => {
+test('promisify-object: promisifies functions', (t) => {
   const fn = () => {}
 
   t.is(promisify(fn), 'promisified')

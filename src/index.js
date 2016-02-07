@@ -5,7 +5,7 @@ export default function promisify (obj, fnNames) {
     return promisifyFn(obj)
   }
 
-  fnNames.forEach(fnName => {
+  fnNames.forEach((fnName) => {
     obj[fnName] = promisifyFn(obj[fnName])
   })
   return obj
