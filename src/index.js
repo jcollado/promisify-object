@@ -1,6 +1,6 @@
 /**
  * Promisify functions in an object
- * @module  promsify-object
+ * @module  promisify-object
  */
 import promisifyFn from 'promisify-function'
 
